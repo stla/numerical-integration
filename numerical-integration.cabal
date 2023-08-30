@@ -12,6 +12,8 @@ category:            Numerical
 build-type:          Simple
 extra-source-files:  README.md
                      CHANGELOG.md
+                     LICENSES/LICENSE_Eigen
+                     LICENSES/LICENSE_NumericalIntegration
 cabal-version:       >=1.10
 
 library
