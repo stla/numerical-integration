@@ -1,4 +1,7 @@
-#include <iostream>
+//#include <iostream>
+#define _USE_MATH_DEFINES
+ 
+#include <cmath>
 #include <Eigen/Eigenvalues>
 #include <ComputeGaussKronrodNodesWeights.h>
 #include <GaussKronrodNodesWeights.h>
