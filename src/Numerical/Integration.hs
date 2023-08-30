@@ -1,6 +1,6 @@
 {-# LANGUAGE ForeignFunctionInterface #-}
 module Numerical.Integration
-  (integration, example)
+  (integration)
   where
 import           Foreign.Marshal.Alloc (free, mallocBytes)
 import           Foreign.Ptr           (FunPtr, Ptr, freeHaskellFunPtr)
@@ -13,7 +13,7 @@ foreign import ccall safe "integration" c_integration
     :: FunPtr (Double -> Double) -> Double -> Double -> Double -> Int
     -> Ptr Double -> Ptr Int -> IO Double
 
--- | Numerical Integration.
+-- | Numerical integration.
 integration :: (Double -> Double)       -- ^ integrand
             -> Double                   -- ^ lower bound
             -> Double                   -- ^ upper bound
@@ -33,6 +33,3 @@ integration f lower upper relError subdiv = do
   free errorCodePtr
   freeHaskellFunPtr fPtr
   return out
-
-example :: IO (Double, Double, Int)
-example = integration (\x -> x*x) 0 1 1e-10 200
