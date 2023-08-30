@@ -35,9 +35,9 @@ namespace Eigen
  */
 }
 
-#include <iomanip>
+//#include <iomanip>
 #include <Eigen/Eigenvalues>
-#include <unsupported/Eigen/MPRealSupport>
+//#include <unsupported/Eigen/MPRealSupport>
 
 #include "ComputeGaussKronrodNodesWeights.h"
 #include "GaussKronrodNodesWeights.h"

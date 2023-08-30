@@ -24,7 +24,7 @@ library
   include-dirs:        cpp
   C-sources:           cpp/integration.cpp
   install-includes:    cpp/ComputeGaussKronrodNodesWeights.h
-                     , cpp/Eigen
+                     , cpp/Eigen/Eigenvalues
                      , cpp/GaussKronrodNodesWeights.h
                      , cpp/Integrator.h
                      , cpp/LaurieGautschi.h
