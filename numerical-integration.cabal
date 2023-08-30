@@ -1,9 +1,10 @@
+cabal-version:       2.2
 name:                numerical-integration
 version:             0.1.0.0
 synopsis:            Numerical integration.
 description:         One-dimensional numerical integration using the 'NumericalIntegration' C++ library.
 homepage:            https://github.com/stla/numerical-integration#readme
-license:             BSD3
+license:             BSD-3-Clause
 license-file:        LICENSE
 author:              Stéphane Laurent
 maintainer:          laurent_step@outlook.fr
@@ -14,7 +15,6 @@ extra-source-files:  README.md
                      CHANGELOG.md
                      LICENSES/LICENSE_Eigen
                      LICENSES/LICENSE_NumericalIntegration
-cabal-version:       2.2
 
 library
   hs-source-dirs:      src
