@@ -1,6 +1,6 @@
-//#include <iostream>
 #define _USE_MATH_DEFINES
- 
+
+#include <iostream> 
 #include <cmath>
 #include <Eigen/Eigenvalues>
 #include <ComputeGaussKronrodNodesWeights.h>
