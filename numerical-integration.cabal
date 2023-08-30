@@ -14,7 +14,7 @@ extra-source-files:  README.md
                      CHANGELOG.md
                      LICENSES/LICENSE_Eigen
                      LICENSES/LICENSE_NumericalIntegration
-cabal-version:       >=1.10
+cabal-version:       >=2.2
 
 library
   hs-source-dirs:      src
