@@ -42,6 +42,8 @@ library
                        -Wmissing-home-modules
                        -Wpartial-fields
                        -Wredundant-constraints
+                       -optcxx-std=c++11
+  cxx-options:         -fPIC -std=c++11
 
 source-repository head
   type:     git
