@@ -243,6 +243,15 @@ library
                      , cpp/Eigen/src/misc/Kernel.h
                      , cpp/Eigen/src/misc/lapacke.h
                      , cpp/Eigen/src/misc/RealSvd2x2.h
+                     , cpp/Eigen/src/plugins/ArrayCwiseBinaryOps.h
+                     , cpp/Eigen/src/plugins/ArrayCwiseUnaryOps.h
+                     , cpp/Eigen/src/plugins/BlockMethods.h
+                     , cpp/Eigen/src/plugins/CommonCwiseBinaryOps.h
+                     , cpp/Eigen/src/plugins/CommonCwiseUnaryOps.h
+                     , cpp/Eigen/src/plugins/IndexedViewMethods.h
+                     , cpp/Eigen/src/plugins/MatrixCwiseBinaryOps.h
+                     , cpp/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+                     , cpp/Eigen/src/plugins/ReshapedMethods.h
                      , cpp/Eigen/src/QR/ColPivHouseholderQR.h
                      , cpp/Eigen/src/QR/ColPivHouseholderQR_LAPACKE.h
                      , cpp/Eigen/src/QR/CompleteOrthogonalDecomposition.h
