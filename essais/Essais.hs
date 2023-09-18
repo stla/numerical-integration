@@ -2,6 +2,10 @@ import Numerical.Integration
 import Data.Complex 
 import Foreign.C
 
+examplex2 :: IO IntegralResult -- value, error estimate, error code
+examplex2 = integration (\x -> x*x) 0 1 1e-5 200
+
+
 example :: IO IntegralResult -- value, error estimate, error code
 example = integration (\t -> 8 * cos(2*t/(1-t)) / (64*(1-t)**2 + t**2)) 0 1 1e-4 100000
 
