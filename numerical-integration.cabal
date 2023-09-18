@@ -1,6 +1,6 @@
 cabal-version:       2.2
 name:                numerical-integration
-version:             0.1.0.2
+version:             0.1.1.0
 synopsis:            Numerical integration.
 description:         One-dimensional numerical integration using the 'NumericalIntegration' C++ library.
 homepage:            https://github.com/stla/numerical-integration#readme
