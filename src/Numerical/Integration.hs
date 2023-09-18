@@ -1,6 +1,6 @@
 {-# LANGUAGE ForeignFunctionInterface #-}
 module Numerical.Integration
-  (integration)
+  (integration, IntegralResult(..))
   where
 import           Foreign.Marshal.Alloc (free, mallocBytes)
 import           Foreign.Ptr           (FunPtr, Ptr, freeHaskellFunPtr)
