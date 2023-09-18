@@ -16,7 +16,7 @@ class Integrand {
 
  public:
   Integrand(std::function<double(double)>& f_) : f(f_) {}
-  double operator()(const double x) const { return f(x); }
+  double operator()(const double& x) const { return f(x); }
 };
 
 double integration(double f(double),

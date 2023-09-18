@@ -1,5 +1,6 @@
 import Numerical.Integration
 import Data.Complex 
+import           Foreign.C
 
 example :: IO IntegralResult -- value, error estimate, error code
 example = integration (\t -> 8 * cos(2*t/(1-t)) / (64*(1-t)**2 + t**2)) 0 1 1e-4 100000
@@ -19,8 +20,8 @@ value' = exp (-6) * pi / (2 * exp 6)
 
 
 data Bessel = Bessel { 
-    _result :: Complex Double
-  , _errors :: (Double, Double)
+    _result :: Complex CDouble
+  , _errors :: (CDouble, CDouble)
   , _codes  :: (Int, Int)
 } deriving Show
 
@@ -30,7 +31,7 @@ j0_re = integration (\t -> (cos(2 * sin(t)) * cosh(3*sin(t))) / pi) 0 pi 1e-5 50
 j0_im :: IO IntegralResult -- value, error estimate, error code
 j0_im = integration (\t -> -(sin(2 * sin(t)) * sinh(3*sin(t))) / pi) 0 pi 1e-5 5000
 
-j0 :: Complex Double -> IO Bessel
+j0 :: Complex CDouble -> IO Bessel
 j0 z = do
   let a = realPart z
       b = imagPart z
