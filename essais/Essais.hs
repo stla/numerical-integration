@@ -1,6 +1,6 @@
 import Numerical.Integration
 import Data.Complex 
-import           Foreign.C
+import Foreign.C
 
 example :: IO IntegralResult -- value, error estimate, error code
 example = integration (\t -> 8 * cos(2*t/(1-t)) / (64*(1-t)**2 + t**2)) 0 1 1e-4 100000
@@ -37,6 +37,18 @@ j0 z = do
       b = imagPart z
   re <- integration (\t -> (cos(a * sin(t)) * cosh(b * sin(t))) / pi) 0 pi 1e-5 5000
   im <- integration (\t -> -(sin(a * sin(t)) * sinh(b * sin(t))) / pi) 0 pi 1e-5 5000
+  return Bessel {
+      _result = (_value re) :+ (_value im) 
+    , _errors = (_error re, _error im)
+    , _codes  = (_code re, _code im)
+  }
+
+jn :: CDouble -> Complex CDouble -> IO Bessel
+jn n z = do
+  let a = realPart z
+      b = imagPart z
+  re <- integration (\t -> (cos(a * sin(t) + n * t) * cosh(b * sin(t))) / pi) 0 pi 1e-5 5000
+  im <- integration (\t -> -(sin(a * sin(t) + n * t) * sinh(b * sin(t))) / pi) 0 pi 1e-5 5000
   return Bessel {
       _result = (_value re) :+ (_value im) 
     , _errors = (_error re, _error im)
