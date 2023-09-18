@@ -1,6 +1,7 @@
 # numerical-integration
 
-One-dimensional numerical integration using the 'NumericalIntegration' C++ library.
+One-dimensional numerical integration using the 
+['NumericalIntegration'](https://github.com/tbs1980/NumericalIntegration) C++ library.
 
 ___
 
