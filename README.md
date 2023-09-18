@@ -8,6 +8,6 @@ ___
 using 200 subdivisions.
 
 ```haskell
-example :: IO (Double, Double, Int) -- value, error estimate, error code
+example :: IO IntegralResult -- value, error estimate, error code
 example = integration (\x -> x*x) 0 1 1e-10 200
 ```
