@@ -20,7 +20,8 @@ library
   hs-source-dirs:      src
   exposed-modules:     Numerical.Integration
   build-depends:       base >= 4.7 && < 5
-                     , system-cxx-std-lib  
+  if impl(ghc >= 9.4)
+     build-depends:    system-cxx-std-lib == 1.0
   other-extensions:    ForeignFunctionInterface
   include-dirs:        cpp
   C-sources:           cpp/integration.cpp
