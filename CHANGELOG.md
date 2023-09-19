@@ -18,3 +18,7 @@ First release.
 
 - Completed README.
 
+
+## 0.1.2.1 - 2023-09-19
+
+- Fixed link to image in README.
