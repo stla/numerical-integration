@@ -21,11 +21,11 @@ foreign import ccall safe "integration" c_integration
     -> Ptr CDouble -> Ptr CInt -> IO CDouble
 
 -- | Numerical integration.
-integration :: (CDouble -> CDouble)       -- ^ integrand
-            -> CDouble                   -- ^ lower bound
-            -> CDouble                   -- ^ upper bound
-            -> CDouble                   -- ^ desired relative error
-            -> CInt                      -- ^ number of subdivisions
+integration :: (CDouble -> CDouble)     -- ^ integrand
+            -> CDouble                  -- ^ lower bound
+            -> CDouble                  -- ^ upper bound
+            -> CDouble                  -- ^ desired relative error
+            -> CInt                     -- ^ number of subdivisions
             -> IO IntegralResult        -- ^ value, error estimate, error code
 integration f lower upper relError subdiv = do
   errorEstimatePtr <- mallocBytes (sizeOf (0 :: CDouble))
