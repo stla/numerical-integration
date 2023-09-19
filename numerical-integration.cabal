@@ -23,7 +23,7 @@ library
   if impl(ghc >= 9.4)
     build-depends:     system-cxx-std-lib == 1.0
   elif os(darwin) || os(freebsd)
-    extra-libraries:   c++
+    extra-libraries:   c++11
   else
     extra-libraries:   stdc++
   other-extensions:    ForeignFunctionInterface
