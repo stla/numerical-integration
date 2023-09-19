@@ -21,7 +21,11 @@ library
   exposed-modules:     Numerical.Integration
   build-depends:       base >= 4.7 && < 5
   if impl(ghc >= 9.4)
-     build-depends:    system-cxx-std-lib == 1.0
+    build-depends:     system-cxx-std-lib == 1.0
+  elif os(darwin) || os(freebsd)
+    extra-libraries:   c++
+  else
+    extra-libraries:   stdc++
   other-extensions:    ForeignFunctionInterface
   include-dirs:        cpp
   C-sources:           cpp/integration.cpp
@@ -272,7 +276,6 @@ library
                      , cpp/Monegato.h
                      , cpp/NumericalIntegration.h
                      , cpp/Piessens.h  
-  extra-libraries:     stdc++
   default-language:    Haskell2010
   ghc-options:         -Wall
                        -Wcompat
@@ -283,7 +286,7 @@ library
                        -Wmissing-home-modules
                        -Wpartial-fields
                        -Wredundant-constraints
-  if os(OSX)
+  if os(darwin) || os(freebsd)
     cxx-options:       -fPIC -std=gnu++11
   else
     cxx-options:       -fPIC -std=c++11
