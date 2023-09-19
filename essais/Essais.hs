@@ -3,25 +3,25 @@ import Data.Complex
 import Numeric.Integration.TanhSinh
 
 examplex2 :: IO IntegralResult -- value, error estimate, error code
-examplex2 = integration (\x -> x*x) 0 1 1e-5 200
+examplex2 = integration (\x -> x*x) 0 1 1e-5 1e-5 200
 
 
 example :: IO IntegralResult -- value, error estimate, error code
-example = integration (\t -> 8 * cos(2*t/(1-t)) / (64*(1-t)**2 + t**2)) 0 1 1e-4 100000
+example = integration (\t -> 8 * cos(2*t/(1-t)) / (64*(1-t)**2 + t**2)) 0 1 1e-5 1e-4 100000
 
 value :: Double -- approx 1.7677e-7
 value = exp (-6) * pi / (2 * exp 10)
 
 
 example' :: IO IntegralResult -- value, error estimate, error code
-example' = integration (\t -> 6 * cos(2*t/(1-t)) / (36*(1-t)**2 + t**2)) 0 1 1e-4 50000
+example' = integration (\t -> 6 * cos(2*t/(1-t)) / (36*(1-t)**2 + t**2)) 0 1 1e-5 1e-4 50000
 
 value' :: Double -- approx 9.6513e-6 
 value' = exp (-6) * pi / (2 * exp 6)
 
 
 example'' :: IO IntegralResult -- value, error estimate, error code
-example'' = integration (\t -> 5 * cos(2*t/(1-t)) / (25*(1-t)**2 + t**2)) 0 1 1e-4 250000
+example'' = integration (\t -> 5 * cos(2*t/(1-t)) / (25*(1-t)**2 + t**2)) 0 1 1e-10 1e-4 250000
 
 value'' :: Double -- approx 7.131404e-05
 value'' = exp (-6) * pi / (2 * exp 4)

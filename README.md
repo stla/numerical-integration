@@ -5,12 +5,12 @@ One-dimensional numerical integration using the
 
 ___
 
-***Example.*** Integrate x² between 0 and 1 with desired relative error 1e-5 and 
-using 200 subdivisions. Exact value: 1/3.
+***Example.*** Integrate x² between 0 and 1 with desired absolute error 0, 
+desired relative error 1e-5 and using 200 subdivisions. Exact value: 1/3.
 
 ```haskell
 example :: IO IntegralResult -- value, error estimate, error code
-example = integration (\x -> x*x) 0 1 1e-5 200
+example = integration (\x -> x*x) 0 1 0.0 1e-5 200
 -- IntegralResult {
 --   _value = 0.3333333333333334, 
 --   _error = 3.7007434154171895e-15, 
@@ -43,7 +43,7 @@ Now let's try with the present library, with 100000 subdivisions.
 
 ```haskell
 intgr :: IO IntegralResult 
-intgr = integration (\t -> 5 * cos(2*t/(1-t)) / (25*(1-t)**2 + t**2)) 0 1 1e-4 100000
+intgr = integration (\t -> 5 * cos(2*t/(1-t)) / (25*(1-t)**2 + t**2)) 0 1 0.0 1e-4 100000
 -- IntegralResult {
 --    _value = 7.131328051415349e-5, 
 --    _error = 4.991435083852171e-7, 
@@ -56,7 +56,7 @@ So let's try 250000 subdivisions. This will take a while.
 
 ```haskell
 intgr :: IO IntegralResult 
-intgr = integration (\t -> 5 * cos(2*t/(1-t)) / (25*(1-t)**2 + t**2)) 0 1 1e-4 250000
+intgr = integration (\t -> 5 * cos(2*t/(1-t)) / (25*(1-t)**2 + t**2)) 0 1 0.0 1e-4 250000
 -- IntegralResult {
 --   _value = 7.131328051415349e-5, 
 --   _error = 4.991435083852171e-7, 
@@ -65,9 +65,6 @@ intgr = integration (\t -> 5 * cos(2*t/(1-t)) / (25*(1-t)**2 + t**2)) 0 1 1e-4 2
 ```
 
 The result is the same!
-
-Note that in the C++ code of 'numerical-integration', I fixed the desired 
-absolute error to 0. I'm not sure it is a good idea.
 
 ___
 

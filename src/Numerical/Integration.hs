@@ -36,26 +36,29 @@ foreign import ccall safe "wrapper" funPtr
     :: (CDouble -> CDouble) -> IO (FunPtr (CDouble -> CDouble))
 
 foreign import ccall safe "integration" c_integration
-    :: FunPtr (CDouble -> CDouble) -> CDouble -> CDouble -> CDouble -> CInt
-    -> Ptr CDouble -> Ptr CInt -> IO CDouble
+    :: FunPtr (CDouble -> CDouble) -> CDouble -> CDouble -> CDouble
+    -> CDouble -> CInt -> Ptr CDouble -> Ptr CInt -> IO CDouble
 
 -- | Numerical integration.
 integration :: (CDouble -> CDouble)   -- ^ integrand
             -> Double                 -- ^ lower bound
             -> Double                 -- ^ upper bound
+            -> Double                 -- ^ desired absolute error
             -> Double                 -- ^ desired relative error
             -> Int                    -- ^ number of subdivisions
             -> IO IntegralResult      -- ^ value, error estimate, error code
-integration f lower upper relError subdiv = do
+integration f lower upper absError relError subdiv = do
   errorEstimatePtr <- mallocBytes (sizeOf (0 :: CDouble))
   errorCodePtr <- mallocBytes (sizeOf (0 :: CInt))
   fPtr <- funPtr f
   let lower' = double2Cdouble lower
       upper' = double2Cdouble upper 
+      absError' = double2Cdouble absError
       relError' = double2Cdouble relError
       subdiv' = fromIntegral subdiv
   result <-
-    c_integration fPtr lower' upper' relError' subdiv' errorEstimatePtr errorCodePtr
+    c_integration fPtr lower' upper' absError' relError' 
+    subdiv' errorEstimatePtr errorCodePtr
   let result' = if isNaN result 
       then nanDouble 
       else realToFrac result

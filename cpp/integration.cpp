@@ -22,6 +22,7 @@ class Integrand {
 double integration(double f(double),
                    double lower,
                    double upper,
+                   double absError,
                    double relError,
                    int subdiv,
                    double* errorEstimate,
@@ -34,8 +35,6 @@ double integration(double f(double),
   // Define a quadrature rule.
   Eigen::Integrator<double>::QuadratureRule rule =
       Eigen::Integrator<double>::GaussKronrod201;
-  // Define the desired absolute error.
-  double absError = 0.0;
   // Integrate.
   double result = integrator.quadratureAdaptive(integrand, lower, upper,
                                                 absError, relError, rule);

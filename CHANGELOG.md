@@ -27,3 +27,8 @@ First release.
 ## 0.1.2.2 - 2023-09-19
 
 - Updated the cabal file so that the Github actions for Mac work with a recent version of GHC.
+
+
+## 0.1.2.3 - 2023-09-20
+
+- Added the choice of the desired absolute accuracy (it was fixed to 0 before).
