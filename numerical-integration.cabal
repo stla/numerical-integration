@@ -286,10 +286,9 @@ library
                        -Wmissing-home-modules
                        -Wpartial-fields
                        -Wredundant-constraints
+                       -optcxx-std=c++11
   if os(darwin) || os(freebsd)
-    cxx-options:       -fPIC -std=gnu++11
-  else
-    cxx-options:       -fPIC -std=c++11
+    ghc-options:       -optcxx-stdlib=libc++
 
 source-repository head
   type:     git
