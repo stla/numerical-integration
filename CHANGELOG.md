@@ -22,3 +22,8 @@ First release.
 ## 0.1.2.1 - 2023-09-19
 
 - Fixed link to image in README.
+
+
+## 0.1.2.2 - 2023-09-19
+
+- Updated the cabal file so that the Github actions for Mac work with a recent version of GHC.
