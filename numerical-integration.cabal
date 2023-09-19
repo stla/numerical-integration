@@ -281,7 +281,7 @@ library
                        -Wmissing-home-modules
                        -Wpartial-fields
                        -Wredundant-constraints
-  if os(darwin)
+  if os(OSX)
     cxx-options:       -fPIC -std=gnu++11
   else
     cxx-options:       -fPIC -std=c++11
