@@ -26,7 +26,7 @@ ___
 oscillatory. It is know that the exact value of its integral from `0` to `1` 
 is `π exp(-10) / 2 ≈ 7.131404e-05`.
 
-![](images/oscillatoryFunction.gif)
+![](https://github.com/stla/numerical-integration/blob/72d163587de7c5b21bb789da3ef2a068f3048d89/images/oscillatoryFunction.gif)
 
 Let's try to evaluate it with R with 200000 subdivisions. 
 
