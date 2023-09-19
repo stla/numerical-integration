@@ -10,3 +10,11 @@ First release.
 - New data type `IntegralResult` to store the result (value, error, code), instead of in a triplet.
 
 - Replaced `Double` with `CDouble` and `Int` with `CInt`.
+
+
+## 0.1.2.0 - 2023-09-19
+
+- Avoided `CDouble`. 
+
+- Completed README.
+
