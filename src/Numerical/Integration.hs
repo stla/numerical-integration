@@ -1,3 +1,12 @@
+{-|
+Module      : Numerical.Integration
+Description : One-dimensional numerical integration.
+Copyright   : (c) Stéphane Laurent, 2023
+License     : BSD3
+Maintainer  : laurent_step@outlook.fr
+
+One-dimensional numerical integration using the 'NumericalIntegration' C++ library.
+-}
 {-# LANGUAGE ForeignFunctionInterface #-}
 module Numerical.Integration
   (integration, IntegralResult(..))
